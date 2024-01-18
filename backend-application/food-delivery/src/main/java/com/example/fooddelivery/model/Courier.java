@@ -1,5 +1,7 @@
 package com.example.fooddelivery.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
 public class Courier extends User {
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 }
